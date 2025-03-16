@@ -23,28 +23,46 @@ const placeOrder = async (req, res) => {
 
         await userModel.findByIdAndUpdate(userId, {cartData: {}})
 
-        res.json({success: true, message: "Order Placed"})
+        res.json({
+            success: true,
+            message: "Order Placed"
+        })
 
     } catch (error) {
         console.log(error);
-        res.json({success: false, message: error.message})
+        res.json({
+            success: false, 
+           message: error.message
+        })
     }
 }
 
 // Placing Order using Stripe method
-const placeOrderStripe = async (req, res) => {
+// const placeOrderStripe = async (req, res) => {
     
-}
+// }
 
 
 // Placing Order using Razorpay method
-const placeOrderRazorpay = async (req, res) => {
+// const placeOrderRazorpay = async (req, res) => {
     
-}
+// }
 
 // ALl Oders data for Admin Panel
 const allOrders = async (req, res) => {
-      
+    try {
+        const orders = await orderModel.find({})
+        res.json({
+            success:true, 
+            orders
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success: false,
+            message: error.message
+        })
+    }
 }
 
 // User Oder Data For Frontend
@@ -54,17 +72,36 @@ const userOrders = async (req, res) => {
         const {userId} = req.body
 
         const orders =  await  orderModel.find({userId})
-        res.json({success: true, orders })
+        res.json({
+            success: true,
+            orders 
+        })
         
     } catch (error) {
         console.log(error);
-        res.json({success: false, message: error.message})
+        res.json({
+            success: false, 
+            message: error.message
+        })
     }
 }
 
 // Update Oder Status from Admin Pannel
 const updateStatus = async (req, res) => {
-     
+     try {
+        const {orderId, status} = req.body
+        await orderModel.findByIdAndUpdate(orderId, {status})
+        res.json({
+          success:true,
+          message:'Status Updated'
+         })
+     } catch (error) {
+        console.log(error);
+        res.json({
+            success: false, 
+            message: error.message
+        })
+     }
 }
 
-export {placeOrder, placeOrderStripe, placeOrderRazorpay, allOrders, userOrders, updateStatus}
+export {placeOrder, allOrders, userOrders, updateStatus}
