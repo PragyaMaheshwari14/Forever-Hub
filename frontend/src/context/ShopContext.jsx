@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 // import { products } from "../assets/frontend_assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -158,7 +159,11 @@ import axios from 'axios'
         <ShopContext.Provider value={value}>
             {props.children}
         </ShopContext.Provider>
+        
     );
  };
+    ShopContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+    };
 
  export default ShopContextProvider;
