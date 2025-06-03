@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext'
 import Title from './Title';
 import ProductItem from './ProductItem';
 
+// eslint-disable-next-line react/prop-types
 const RelatedProducts = ({category, subCategory}) => {
 
     const {products} = useContext(ShopContext);
