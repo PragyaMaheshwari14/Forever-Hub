@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import  { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title';
 import ProductItem from './ProductItem';
 
-// eslint-disable-next-line react/prop-types
+
 const RelatedProducts = ({category, subCategory}) => {
 
     const {products} = useContext(ShopContext);
@@ -36,5 +37,10 @@ const RelatedProducts = ({category, subCategory}) => {
     </div>
   )
 }
+
+RelatedProducts.propTypes = {
+  category: PropTypes.string.isRequired,
+  subCategory: PropTypes.string.isRequired,
+};
 
 export default RelatedProducts
