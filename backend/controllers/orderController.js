@@ -37,16 +37,7 @@ const placeOrder = async (req, res) => {
     }
 }
 
-// Placing Order using Stripe method
-// const placeOrderStripe = async (req, res) => {
-    
-// }
 
-
-// Placing Order using Razorpay method
-// const placeOrderRazorpay = async (req, res) => {
-    
-// }
 
 // ALl Oders data for Admin Panel
 const allOrders = async (req, res) => {
