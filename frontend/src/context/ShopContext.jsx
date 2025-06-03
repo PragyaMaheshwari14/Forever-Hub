@@ -61,7 +61,7 @@ import axios from 'axios'
                  }
 
                 } catch (error){
-
+                    console.log(error)
                 }
             }
         }
@@ -97,7 +97,7 @@ import axios from 'axios'
                         totalAmount += itemInfo.price * cartItems[items][item]
                     } 
                 } catch (error) {
-                    
+                    console.log(error)
                 }
             }
         }
