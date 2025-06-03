@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import axios from 'axios'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
 import { assets } from '../assets/admin_assets/assets'
+import PropTypes from 'prop-types'
 
 const Orders = ({token}) => {
 
@@ -33,7 +34,7 @@ const Orders = ({token}) => {
         }
        } catch (error) {
         console.log(error);
-        toast.error(response.data.message);
+          toast.error(error.response?.data?.message || error.message || "Something went wrong");
        }
   }
 
@@ -87,5 +88,8 @@ const Orders = ({token}) => {
     </div>
   )
 }
+Orders.propTypes = {
+  token: PropTypes.string.isRequired,
+};
 
 export default Orders

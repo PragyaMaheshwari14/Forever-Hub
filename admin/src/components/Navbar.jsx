@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { assets } from '../assets/admin_assets/assets'
 
 const Navbar = ({setToken}) => {
@@ -10,4 +10,7 @@ const Navbar = ({setToken}) => {
   )
 }
 
+Navbar.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
 export default Navbar

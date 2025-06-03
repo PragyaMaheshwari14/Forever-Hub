@@ -1,7 +1,8 @@
 import axios from 'axios'
-import React, {useState, useEffect}from 'react'
+import  {useState, useEffect}from 'react'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
+import PropTypes from 'prop-types'
 
 const List = ({token}) => {
 
@@ -76,5 +77,9 @@ const List = ({token}) => {
     </>
   )
 }
+
+List.propTypes = {
+  token: PropTypes.string.isRequired,
+};
 
 export default List
